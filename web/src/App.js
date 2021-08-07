@@ -13,10 +13,10 @@ function App() {
     setSent(true)
 
     try {
-      await axios.post("http://localhost:4000/get_text", {
-        url,
-        name 
-      })
+      await axios.get(`https://api.outline.com/v3/parse_article?source_url=${url}`) 
+      .then(function (response) {
+    console.log(response);
+  })
     } catch (error) {
       console.log(error)
     }
